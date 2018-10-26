@@ -1,2 +1,27 @@
-<!--modules/party-gift-randomizer/pages/participants/participants.wxml-->
-<text>modules/party-gift-randomizer/pages/participants/participants.wxml</text>
+<view class="participants">
+  <view class="avatars-section">
+    <scroll-view scroll-y="true">
+      <view class="avatar-container" wx:for="{{participantsList}}" wx:key="{{index}}" wx:for-item="item">
+        <image class="avatar" src="{{item.avatar[0].url}}" />
+        <icon class="ready-icon" type="success" size="20" wx:if="{{item.status}}"></icon>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="btn-view">
+    <button bindtap='onClickViewCostume'>查看服装道具</button>
+  </view>
+  <view class="btn-ready">
+    <button type="primary" bindtap='onClickReady'>Ready！</button>
+  </view>
+   <modal hidden="{{isModalHidden}}" title="Ready？" confirm-text="Yes" cancel-text="No" bindcancel="onClickCancel" bindconfirm="onClickConfirm">  
+   <view>请填写身高体重便于朋友帮你购买：</view>
+      <view class="input-container"><view class="label">身高(cm)：</view><input class="input-height" type="text" placeholder="180" auto-focus bindinput="onInputHeight"/></view>
+      <view class="input-container"><view class="label">体重(kg)：</view><input class="input-weight" type="text" placeholder="75" auto-focus bindinput="onInputWeight"/></view> 
+  </modal>
+  <!-- 当前用户为群主时显示 -->
+  <view class="btn-start" wx:if="true">
+    <button bindtap='onClickStart'>开始</button>
+  </view>
+  <view class="desc">一旦群主开始，大家拼手速抢万圣节道具给你抽到的TA</view>
+</view>
