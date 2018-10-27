@@ -1,12 +1,12 @@
 const constant = require('../../base/constant.js');
 const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    participantsList: undefined,
     isModalHidden: true,
     userHeight: '',
     userWeight: ''
@@ -16,9 +16,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      participantsList: app.globalData.party.participants
-    })
   },
 
   /**
@@ -114,7 +111,17 @@ Page({
       success: function (res) {
         if (res.confirm) {
           wx.request({
-            url: ,
+            url: constant.gateway.start,
+            method: "POST",
+            data: {
+              id: app.globalData.party.id,
+              openid: app.globalData.userInfo.openid
+            },
+            success: res => {
+              wx.redirectTo({
+                url: '../chooseGift/chooseGift',
+              })
+            }
           })
         }
       }

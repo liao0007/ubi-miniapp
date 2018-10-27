@@ -1,3 +1,7 @@
 <view class="gifts">
-<view class="btn-add"><button>+</button></view>
+  <view class="btn-add">
+    <navigator open-type="navigateTo" url="../addGift/addGift" hover-class="navigator-hover" class='list-item'>
+      <button>+</button>
+    </navigator>
+  </view>
 </view>

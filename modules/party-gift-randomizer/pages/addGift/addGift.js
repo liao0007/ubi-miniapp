@@ -1,11 +1,13 @@
-// modules/party-gift-randomizer/pages/addGift/addGift.js
+const constant = require('../../base/constant.js');
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    giftInfo: ''
   },
 
   /**
@@ -62,5 +64,29 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  bindTextAreaChange: function(e) {
+    this.setData({
+      giftInfo: e.detail.value
+    })
+  },
+  onAddGiftButtonClicked: function(e) {
+    // let giftInfo = this.data.giftInfo
+    wx.request({
+      url: constant.gateway.addGift,
+      method: "POST",
+      data: {
+        id: app.globalData.party.id,
+        openid: app.globalData.userInfo.openid,
+        giftInfo: this.data.giftInfo
+      },
+      success: (res) => {
+        console.log(res)
+        app.globalData.party = res.data
+        wx.navigateBack({
+          delta: 1
+        })
+      }
+    })
   }
 });

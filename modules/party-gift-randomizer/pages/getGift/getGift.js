@@ -1,4 +1,6 @@
-// modules/party-gift-randomizer/pages/getGift/getGift.js
+const constant = require('../../base/constant.js');
+const app = getApp();
+
 Page({
 
   /**

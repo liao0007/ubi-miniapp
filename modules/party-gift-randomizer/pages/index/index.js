@@ -15,12 +15,6 @@ Page({
    */
   onLoad: function (options) {
     const scene = decodeURIComponent(options.scene);
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        // console.log(res.code)
-      }
-    })
   },
 
   /**
@@ -80,7 +74,6 @@ Page({
         method: 'POST',
         data: userInfo,
         success(res) {
-          console.log(res.data);
           app.globalData.party = res.data;
           wx.redirectTo({
             url: '../share/share',
@@ -89,7 +82,7 @@ Page({
       })
     })
 
-    
+
   },
 
   onJoinWithUserInfo: userInfoRes => {
@@ -98,8 +91,9 @@ Page({
       wx.request({
         url: constant.gateway.join,
         method: "POST",
-        data: { id: 2, ...userInfo }, //id should reflect real id by scan qrcode
+        data: { id: 1, ...userInfo }, //id should reflect real id by scan qrcode
         success: res => {
+          console.log(res)
           app.globalData.party = res.data;
           wx.redirectTo({
             url: '../participants/participants',
@@ -121,6 +115,7 @@ const getUserInfo = (userInfoRes, callback) => {
           // 返回 openid
           let userInfo = JSON.parse(userInfoRes.detail.rawData);
           userInfo.openid = sessionInfoRes.data.openid;
+          app.globalData.userInfo = userInfo
           callback(userInfo)
         }
       })

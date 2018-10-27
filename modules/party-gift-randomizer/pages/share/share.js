@@ -1,5 +1,6 @@
 const constant = require('../../base/constant.js');
 const app = getApp();
+
 Page({
 
   /**
