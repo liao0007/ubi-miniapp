@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -44,7 +44,37 @@
 				{
 					"id": -1,
 					"name": "gifts",
-					"pathName": "modules/party-gift-randomizer/pages/gifts/gifts"
+					"pathName": "modules/party-gift-randomizer/pages/gifts/gifts",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "modules/party-gift-randomizer/pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "share",
+					"pathName": "modules/party-gift-randomizer/pages/share/share",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "addGift",
+					"pathName": "modules/party-gift-randomizer/pages/addGift/addGift",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "getGift",
+					"pathName": "modules/party-gift-randomizer/pages/getGift/getGift",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "chooseGift",
+					"pathName": "modules/party-gift-randomizer/pages/chooseGift/chooseGift"
 				}
 			]
 		}

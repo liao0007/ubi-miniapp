@@ -1,14 +1,19 @@
 @import "/base/index.wxss";
 
 .gifts {
-  padding: 80rpx;
+  padding-top: 80rpx;
+}
+.gifts-section {
   width: 600rpx;
+  height: 70%;
+  overflow-y: auto;
   margin: 0 auto;
+  z-index: 2;
 }
 .btn-add {
   width: 150rpx;
   height: 150rpx;
-  margin: 20rpx 20rpx;
+  margin: 20rpx 20rpx 0;
   border: dashed 1px black;
   float: left;
 }
@@ -24,8 +29,8 @@
   width: 150rpx;
   height: 150rpx;
   margin: 20rpx 20rpx;
-  border: solid 1px #eaeaea;
-  display: inline-block
+  z-index: 3;
+  float: left;
 }
 
 .list-item {
@@ -42,7 +47,7 @@
 
 .avatar-contaienr {
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
   height: 50rpx;
   width: 50rpx;

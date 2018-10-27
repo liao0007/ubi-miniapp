@@ -1,1 +1,20 @@
 @import "/base/index.wxss";
+
+.page-body {
+  padding-top: 200rpx;
+}
+
+.index-desc {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.guide[plain] {
+  border: none;
+  text-decoration: underline;
+}
+textarea {
+  background-color: #89424F;
+  width: 100%;
+  padding: 0 10%;
+}

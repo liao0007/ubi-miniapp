@@ -1,6 +1,6 @@
-<view class="container">
+<view class="container page">
   <view class="page-body">
-    <view class="page-section">
+    <view class="page-section friend">
       <view class="index-desc">you are buying for</view>
       <image class="index-logo" src=""></image>
       <view>
@@ -12,9 +12,9 @@
 
 
     <view class="page-section">
-      <view class="page-section-title">
+      <!-- <view class="page-section-title">
         <text>flex-direction: row\n横向布局</text>
-      </view>
+      </view> -->
       <view class="page-section-spacing">
         <scroll-view scroll-y="true" style="height: 600rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
           <view class="flex-wrp" style="flex-direction:row;">
@@ -31,7 +31,10 @@
   </view>
 
   <view class="btn-area">
-    <button type="primary" bindtap='onBuyButtonClicked'>BUY</button>
+    <button class='button' bindtap='onBuyButtonClicked' plain='true'>BUY</button>
 
+  </view>
+  <view class="bg-container">
+    <image class="bg-image" src="/resources/images/halloween/bg_bottom.png"></image>
   </view>
 </view>

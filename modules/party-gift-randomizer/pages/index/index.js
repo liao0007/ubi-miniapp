@@ -1,73 +1,75 @@
 Page({
-    ...require('../../base/app.js'),
+  ...require('../../base/app.js'),
 
   /**
    * 页面的初始数据
    */
   data: {
-    id: 0
+    id: 0,
+    buttonUrl: undefined
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.setData({
       id: (options.id == undefined ? 0 : options.id),
-      imageBaseUrl: this.imageBaseUrl
+      imageBaseUrl: this.imageBaseUrl,
+      buttonUrl: options.id == undefined ? '/resources/images/halloween/btn_enter.png' : '/resources/images/halloween/btn_begin.png'
     })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
 
-  onCreateWithUserInfo: function (userInfoRes) {
+  onCreateWithUserInfo: function(userInfoRes) {
     this.getUserInfo(userInfoRes, userInfo => {
       wx.request({
         url: this.gateway.create,
@@ -75,7 +77,7 @@ Page({
         data: userInfo,
         success: res => {
           this.setGlobalData({
-            party : res.data
+            party: res.data
           })
           wx.redirectTo({
             url: '../share/share',
@@ -85,15 +87,18 @@ Page({
     })
   },
 
-  onJoinWithUserInfo: function (userInfoRes) {
+  onJoinWithUserInfo: function(userInfoRes) {
     this.getUserInfo(userInfoRes, userInfo => {
       wx.request({
         url: this.gateway.join,
         method: "POST",
-        data: { id: parseInt(this.data.id), ...userInfo },
+        data: {
+          id: parseInt(this.data.id),
+          ...userInfo
+        },
         success: res => {
           this.setGlobalData({
-            party : res.data
+            party: res.data
           })
           wx.redirectTo({
             url: '../participants/participants',
@@ -103,7 +108,7 @@ Page({
     })
   },
 
-  getUserInfo: function (userInfoRes, callback) {
+  getUserInfo: function(userInfoRes, callback) {
     wx.login({
       success: loginInfoRes => {
         // 发送 res.code 到后台换取 openId, sessionKey

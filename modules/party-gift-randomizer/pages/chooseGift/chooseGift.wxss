@@ -1,14 +1,30 @@
 @import "/base/index.wxss";
 
+.friend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+text {
+  margin: 20rpx;
+  color: #fff;
+}
+scroll-view {
+  border-top: solid 1px #eaeaea;
+}
 .flex-wrp{
   margin-top: 60rpx;
   display:block;
 }
 .flex-item{
   width: 30%;
-  height: 300rpx;
+  height: 200rpx;
   font-size: 26rpx;
   float: left;
   background: red;
   margin: 10rpx;
+}
+.button[plain] {
+  background-color: #FF9814;
+  border-color: #FF9814;
 }

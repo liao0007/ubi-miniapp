@@ -1,4 +1,4 @@
-<view class="participants">
+<view class="participants page">
   <view class="avatars-section">
     <scroll-view scroll-y="true">
       <view class="avatar-container" wx:for="{{participants}}" wx:key="{{index}}" wx:for-item="item">
@@ -9,19 +9,27 @@
   </view>
 
   <view class="btn-view">
-    <button bindtap='onClickViewCostume'>查看服装道具</button>
+    <button class="button" bindtap='onClickViewCostume' plain="true">查看服装道具</button>
   </view>
   <view class="btn-ready">
-    <button type="primary" bindtap='onClickReady'>Ready！</button>
+    <button class="button ready" bindtap='onClickReady' plain="true">Ready！</button>
   </view>
-   <modal hidden="{{isModalHidden}}" title="Ready？" confirm-text="Yes" cancel-text="No" bindcancel="onClickReadyCancel" bindconfirm="onClickReadyConfirm">  
-   <view>请填写身高体重便于朋友帮你购买：</view>
-      <view class="input-container"><view class="label">身高(cm)：</view><input class="input-height" type="text" placeholder="180" auto-focus bindinput="onInputHeight"/></view>
-      <view class="input-container"><view class="label">体重(kg)：</view><input class="input-weight" type="text" placeholder="75" auto-focus bindinput="onInputWeight"/></view> 
+  <modal hidden="{{isModalHidden}}" title="Ready？" confirm-text="确定" cancel-text="取消" bindcancel="onClickReadyCancel" bindconfirm="onClickReadyConfirm">
+    <view class="title">请填写身高、体重， 便于朋友帮你购买costume</view>
+    <view class="input-container">
+      <input class="input-height" type="text" placeholder="身高" auto-focus bindinput="onInputHeight" />CM
+    </view>
+    <view class="input-container">
+      <input class="input-weight" type="text" placeholder="体重" auto-focus bindinput="onInputWeight" />KG
+    </view>
   </modal>
   <!-- 当前用户为群主时显示 -->
   <view class="btn-start" wx:if="true">
-    <button bindtap='onClickStart'>开始</button>
+    <button class="button" bindtap='onClickStart' plain="true">开始</button>
   </view>
-  <view class="desc">一旦群主开始，大家拼手速抢万圣节道具给你抽到的TA</view>
+  <!-- <view class="desc">一旦群主开始，大家拼手速抢万圣节道具给你抽到的TA</view> -->
+
+  <view class="bg-container">
+    <image class="bg-image" src="/resources/images/halloween/bg_bottom.png"></image>
+  </view>
 </view>

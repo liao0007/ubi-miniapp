@@ -1,19 +1,23 @@
-<view class="container">
+<view class="container page">
   <view class="page-body">
     <view class="page-section">
       <view class="index-desc">如果你有很好的万圣节道具想法请添加道具购买链接分享给你的朋友们</view>
     </view>
 
     <view class="page-section">
-      <view class="page-section-title">输入区域高度自适应，不会出现滚动条</view>
+      <!-- <view class="page-section-title">输入区域高度自适应，不会出现滚动条</view> -->
       <view class="textarea-wrp">
-        <textarea placeholder="产品信息" bindinput="bindTextAreaChange" auto-height auto-focus/>
+        <textarea placeholder="淘宝／京东购物链接" bindinput="bindTextAreaChange"  auto-focus/>
       </view>
     </view>
   </view>
 
   <view class="btn-area">
-    <button type="primary" bindtap='onAddGiftButtonClicked'>提交</button>
-    <button type="default" bindtap='onSaveButtonClicked'>如何操作</button>
+    <button class='button' bindtap='onAddGiftButtonClicked' plain='true'>提交</button>
+    <button class='button guide' bindtap='onSaveButtonClicked' plain='true'>操作提示</button>
+  </view>
+
+  <view class="bg-container">
+    <image class="bg-image" src="/resources/images/halloween/bg_bottom.png"></image>
   </view>
 </view>

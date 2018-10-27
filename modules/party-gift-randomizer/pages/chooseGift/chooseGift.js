@@ -74,7 +74,7 @@ Page({
     wx.showModal({
       content: 'are you sure?',
       confirmText: '确定',
-      cancelText: '取消',
+      cancelText: '再想想',
       success: function() {
         wx.redirectTo({
           url: '../getGift/getGift',

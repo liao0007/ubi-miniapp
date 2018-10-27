@@ -133,10 +133,10 @@ Page({
 
   onClickStart: function () {
     wx.showModal({
-      title: 'Alert',
-      content: '一旦开始，没有进来的朋友就不能进来了',
-      confirmText: 'Yes',
-      cancelText: 'No',
+      title: '提示',
+      content: '确定开始后，没加入的朋友就不能加入了哦～～',
+      confirmText: '确定',
+      cancelText: '取消',
       success: (res) => {
         if (res.confirm) {
           wx.request({

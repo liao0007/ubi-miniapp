@@ -1,10 +1,13 @@
-<view class="container">
+<view class="container page">
   <view class="page-body">
     <view class="page-section">
       <view class="index-desc">复制次链接打开京东</view>
+      <view class="textarea-wrp">
+        <textarea placeholder="淘宝／京东购物链接" bindinput="bindTextAreaChange" auto-focus/>
+      </view>
     </view>
 
-    <view class="page-section">
+    <view class="page-section friend">
       <image class="index-logo" src=""></image>
       <view>
         <text>178cm</text>
@@ -15,7 +18,11 @@
   </view>
 
   <view class="btn-area">
-    <button type="primary" bindtap='onBuyButtonClicked'>建立新的万圣节</button>
+    <button class='button' bindtap='onBuyButtonClicked' plain='true'>建立新的万圣节</button>
 
+  </view>
+
+  <view class="bg-container">
+    <image class="bg-image" src="/resources/images/halloween/bg_bottom.png"></image>
   </view>
 </view>

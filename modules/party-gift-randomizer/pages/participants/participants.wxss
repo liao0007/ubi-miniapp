@@ -1,13 +1,14 @@
 @import "/base/index.wxss";
 
-.participants {
-  padding: 80rpx;
-}
+.page {
+  padding-top: 80rpx;
 
+}
 .avatars-section {
   height: 490rpx;
   width: 570rpx;
   overflow-y: auto;
+  margin: auto;
 }
 
 .avatar-container {
@@ -32,16 +33,16 @@
 }
 
 .btn-view {
-  margin: 60rpx auto 30rpx;
-  width: 60%;
-}
-.btn-ready {
-  width: 60%;
-  margin: 0 auto;
+  margin: 80rpx auto 30rpx;
 }
 .btn-start {
-  margin: 60rpx auto 0;
-  width: 30%;
+  position: absolute;
+  bottom: 160rpx;
+  width: 100%;
+}
+.ready[plain] {
+  background-color: #FF9814;
+  border-color: #FF9814;
 }
 
 .desc {
@@ -49,35 +50,20 @@
   color: #888888;
   font-size: 28rpx;
 }
-
+.title {
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+}
 .input-container {
   display: flex;
   align-items: center;
-  margin-top: 20rpx;
-}
-.label {
-  width: 30%;
+  margin: 40rpx 0;
 }
  input {
    display: inline-block;
-   width: 50%;
-   border: solid 1px #eaeaea;
+   width: 85%;
+   border-bottom: solid 1px #eaeaea;
    padding-left: 10rpx;
  }
 
-::-webkit-scrollbar {
-  width: 6px;
-  background-color: #eaeaea;
-}
-
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  background-color: #eaeaea;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
-  background-color: gray;
-}
