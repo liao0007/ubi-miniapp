@@ -1,5 +1,5 @@
-var constant = require('../../base/constant.js')
-const app = getApp()
+const constant = require('../../base/constant.js');
+const app = getApp();
 Page({
 
   /**
@@ -79,7 +79,7 @@ Page({
               title: '保存成功',
               icon: 'success',
               duration: 2000
-            })
+            });
             wx.redirectTo({
               url: '../participants/participants',
             })
@@ -104,4 +104,4 @@ Page({
       }
     })
   }
-})
+});

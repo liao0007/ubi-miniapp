@@ -1,4 +1,5 @@
-const app = getApp()
+const constant = require('../../base/constant.js');
+const app = getApp();
 Page({
 
   /**
@@ -70,7 +71,7 @@ Page({
   },
 
   onClickViewCostume: function() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../gifts/gifts',
     })
   },
@@ -112,9 +113,11 @@ Page({
       cancelText: 'No',
       success: function (res) {
         if (res.confirm) {
-          // call api
+          wx.request({
+            url: ,
+          })
         }
       }
     })
   }
-})
+});

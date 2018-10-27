@@ -1,5 +1,6 @@
-const baseUrl = "https://www.youbohudong.com/"
-const baseGateway = baseUrl + "api/biz/party-gift-randomizer/"
+const baseUrl = "https://www.youbohudong.com/";
+// const baseUrl = "http://localhost:9000/"
+const baseGateway = baseUrl + "api/biz/party-gift-randomizer/";
 
 module.exports.gateway = {
   connect: baseGateway + "connect",
@@ -10,4 +11,4 @@ module.exports.gateway = {
   getReady: baseGateway + "get-ready",
   start: baseGateway + "start",
   addGift: baseGateway + "add-gift"
-}
+};

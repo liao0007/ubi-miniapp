@@ -100,7 +100,7 @@ Page({
   },
 
   formSubmit(e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    console.log('form发生了submit事件，携带数据为：', e.detail.value);
 
     wx.showModal({
       title: '弹窗标题',
@@ -108,7 +108,7 @@ Page({
       confirmText: '确定',
       cancelText: '取消',
       success: (res) => {
-        if (res.confirm == true) {
+        if (res.confirm) {
           wx.request({
             url: 'http://localhost:9000/create', //仅为示例，并非真实的接口地址
             method: 'POST',
@@ -130,4 +130,4 @@ Page({
 
   }
 
-})
+});
