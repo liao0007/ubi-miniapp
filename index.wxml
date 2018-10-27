@@ -7,7 +7,7 @@
     <view class="list">
 
       <block>
-        <navigator open-type="redirect" url="/modules/party-gift-randomizer/pages/index/index" hover-class="navigator-hover" class='list-item'>
+        <navigator open-type="redirect" url="/modules/party-gift-randomizer/pages/index/index?id=1" hover-class="navigator-hover" class='list-item'>
           <view id="{{item.id}}" class="list-item-hd">
             <view class="list-text">Secret Halloween</view>
             <image class="list-img" src="/resources/images/kind/form.png"></image>

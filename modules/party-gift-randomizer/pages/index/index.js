@@ -1,7 +1,5 @@
-const constant = require('../../base/constant.js');
-const app = getApp();
-
 Page({
+    ...require('../../base/app.js'),
 
   /**
    * 页面的初始数据
@@ -69,13 +67,15 @@ Page({
   },
 
   onCreateWithUserInfo: function (userInfoRes) {
-    getUserInfo(userInfoRes, userInfo => {
+    this.getUserInfo(userInfoRes, userInfo => {
       wx.request({
-        url: constant.gateway.create,
+        url: this.gateway.create,
         method: 'POST',
         data: userInfo,
-        success(res) {
-          app.globalData.party = res.data;
+        success: res => {
+          this.setGlobalData({
+            party : res.data
+          })
           wx.redirectTo({
             url: '../share/share',
           })
@@ -85,40 +85,42 @@ Page({
   },
 
   onJoinWithUserInfo: function (userInfoRes) {
-    // 返回用户信息
-    getUserInfo(userInfoRes, userInfo => {
+    this.getUserInfo(userInfoRes, userInfo => {
       wx.request({
-        url: constant.gateway.join,
+        url: this.gateway.join,
         method: "POST",
         data: { id: parseInt(this.data.id), ...userInfo },
         success: res => {
-          console.log(res)
-          app.globalData.party = res.data;
+          this.setGlobalData({
+            party : res.data
+          })
           wx.redirectTo({
             url: '../participants/participants',
           })
         }
       })
     })
+  },
+
+  getUserInfo: function (userInfoRes, callback) {
+    wx.login({
+      success: loginInfoRes => {
+        // 发送 res.code 到后台换取 openId, sessionKey
+        wx.request({
+          url: this.gateway.sessionInfo + '?code=' + loginInfoRes.code,
+          method: "GET",
+          success: sessionInfoRes => {
+            // 返回 openid
+            let userInfo = JSON.parse(userInfoRes.detail.rawData);
+            userInfo.openid = sessionInfoRes.data.openid;
+            // store userInfo
+            this.setGlobalData({
+              userInfo: userInfo
+            })
+            callback(userInfo)
+          }
+        })
+      }
+    })
   }
 });
-
-const getUserInfo = (userInfoRes, callback) => {
-  wx.login({
-    success: loginInfoRes => {
-      // 发送 res.code 到后台换取 openId, sessionKey
-      wx.request({
-        url: constant.gateway.sessionInfo + '?code=' + loginInfoRes.code,
-        method: "GET",
-        success: sessionInfoRes => {
-          // 返回 openid
-          let userInfo = JSON.parse(userInfoRes.detail.rawData);
-          userInfo.openid = sessionInfoRes.data.openid;
-          // store userInfo
-          app.globalData.userInfo = userInfo
-          callback(userInfo)
-        }
-      })
-    }
-  })
-}

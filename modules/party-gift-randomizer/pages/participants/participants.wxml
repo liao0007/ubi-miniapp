@@ -1,8 +1,8 @@
 <view class="participants">
   <view class="avatars-section">
     <scroll-view scroll-y="true">
-      <view class="avatar-container" wx:for="{{app.globalData.party.participants}}" wx:key="{{index}}" wx:for-item="item">
-        <image class="avatar" src="{{item.avatar[0].url}}" />
+      <view class="avatar-container" wx:for="{{participants}}" wx:key="{{index}}" wx:for-item="item">
+        <image class="avatar" src="{{avatarForParticipantId(item.id)}}" />
         <icon class="ready-icon" type="success" size="20" wx:if="{{item.status}}"></icon>
       </view>
     </scroll-view>

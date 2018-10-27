@@ -1,7 +1,5 @@
-const constant = require('../../base/constant.js');
-const app = getApp();
-
 Page({
+  ...require('../../base/app.js'),
 
   /**
    * 页面的初始数据

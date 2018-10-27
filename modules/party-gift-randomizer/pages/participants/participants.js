@@ -1,12 +1,11 @@
-const constant = require('../../base/constant.js');
-const app = getApp();
-
 Page({
+    ...require('../../base/app.js'),
 
   /**
    * 页面的初始数据
    */
   data: {
+    participants: [],
     isModalHidden: true,
     userHeight: '',
     userWeight: ''
@@ -15,65 +14,68 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-
+  onShow: function () {
+    this.setData({
+      participants: this.getGlobalData().party.participants
+    })
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   },
 
-  onClickViewCostume: function() {
+  onClickViewCostume: function () {
     wx.navigateTo({
       url: '../gifts/gifts',
     })
   },
 
-  onClickReady: function() {
+  onClickReady: function () {
     this.setData({
       isModalHidden: false
     })
@@ -93,17 +95,17 @@ Page({
 
   onClickReadyConfirm: function () {
     wx.request({
-      url: constant.gateway.getReady,
+      url: this.gateway.getReady,
       method: "POST",
       data: {
-        id: app.globalData.party.id,
-        openid: app.globalData.userInfo.openid,
+        id: this.globalData.party.id,
+        openid: this.globalData.userInfo.openid,
         height: this.data.userHeight,
         weight: this.data.userWeight
       },
       success: (res) => {
         console.log(res)
-        app.globalData.party = res.data
+        this.globalData.party = res.data
         wx.redirectTo({
           url: '../chooseGift/chooseGift'
         })
@@ -126,11 +128,11 @@ Page({
       success: function (res) {
         if (res.confirm) {
           wx.request({
-            url: constant.gateway.start,
+            url: this.gateway.start,
             method: "POST",
             data: {
-              id: app.globalData.party.id,
-              openid: app.globalData.userInfo.openid
+              id: this.globalData.party.id,
+              openid: this.globalData.userInfo.openid
             },
             success: res => {
               wx.redirectTo({
