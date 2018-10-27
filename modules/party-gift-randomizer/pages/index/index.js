@@ -1,5 +1,5 @@
 Page({
-    ...require('../../base/app.js'),
+  ...require('../../base/app.js'),
 
   /**
    * 页面的初始数据
@@ -75,7 +75,7 @@ Page({
         data: userInfo,
         success: res => {
           this.setGlobalData({
-            party : res.data
+            party: res.data
           })
           wx.redirectTo({
             url: '../share/share',
@@ -87,19 +87,43 @@ Page({
 
   onJoinWithUserInfo: function (userInfoRes) {
     this.getUserInfo(userInfoRes, userInfo => {
+
       wx.request({
-        url: this.gateway.join,
+        url: this.gateway.get,
         method: "POST",
-        data: { id: parseInt(this.data.id), ...userInfo },
-        success: res => {
+        data: {
+          id: parseInt(this.data.id),
+          openid: userInfo.openid,
+        },
+        success: (res) => {
+          let party = res.data
           this.setGlobalData({
-            party : res.data
+            party: party
           })
-          wx.redirectTo({
-            url: '../participants/participants',
-          })
+          if (party.status == 'created') {
+            wx.request({
+              url: this.gateway.join,
+              method: "POST",
+              data: { id: parseInt(this.data.id), ...userInfo },
+              success: res => {
+                this.setGlobalData({
+                  party: res.data
+                })
+                wx.redirectTo({
+                  url: '../participants/participants',
+                })
+              }
+            })
+          } else if (party.status == 'started') {
+            wx.redirectTo({
+              url: '../chooseGift/chooseGift',
+            })
+          }
         }
       })
+
+
+
     })
   },
 
@@ -108,8 +132,11 @@ Page({
       success: loginInfoRes => {
         // 发送 res.code 到后台换取 openId, sessionKey
         wx.request({
-          url: this.gateway.sessionInfo + '?code=' + loginInfoRes.code,
+          url: this.gateway.sessionInfo,
           method: "GET",
+          data: {
+            code: loginInfoRes.code
+          },
           success: sessionInfoRes => {
             // 返回 openid
             let userInfo = JSON.parse(userInfoRes.detail.rawData);
