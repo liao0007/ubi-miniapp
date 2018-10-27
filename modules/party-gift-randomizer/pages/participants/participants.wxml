@@ -14,7 +14,7 @@
   <view class="btn-ready">
     <button type="primary" bindtap='onClickReady'>Ready！</button>
   </view>
-   <modal hidden="{{isModalHidden}}" title="Ready？" confirm-text="Yes" cancel-text="No" bindcancel="onClickCancel" bindconfirm="onClickConfirm">  
+   <modal hidden="{{isModalHidden}}" title="Ready？" confirm-text="Yes" cancel-text="No" bindcancel="onClickReadyCancel" bindconfirm="onClickReadyConfirm">  
    <view>请填写身高体重便于朋友帮你购买：</view>
       <view class="input-container"><view class="label">身高(cm)：</view><input class="input-height" type="text" placeholder="180" auto-focus bindinput="onInputHeight"/></view>
       <view class="input-container"><view class="label">体重(kg)：</view><input class="input-weight" type="text" placeholder="75" auto-focus bindinput="onInputWeight"/></view> 
