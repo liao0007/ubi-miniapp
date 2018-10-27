@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    giftsList: null
+    gifts: null
   },
 
   /**
@@ -29,7 +29,13 @@ Page({
    */
   onShow: function () {
     this.setData({
-      giftsList: this.getGlobalData().party.gifts
+      gifts: this.getGlobalData().party.gifts
+    })
+    this.connectSocket(this.getGlobalData().party.id, (res) => {
+      console.log(res)
+      this.setData({
+        gifts: res.gifts
+      })
     })
   },
 
@@ -37,14 +43,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+    this.closeSocket()
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    this.closeSocket()
   },
 
   /**
@@ -66,7 +72,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  
+  }
 });

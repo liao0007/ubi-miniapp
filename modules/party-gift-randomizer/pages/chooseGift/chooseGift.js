@@ -28,21 +28,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.connectSocket(this.getGlobalData().party.id, (party) => {
+      this.setData({
+        participants: party.participants
+      }, this.checkStartStatus(party))
+    })
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+    this.closeSocket()
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    this.closeSocket()
   },
 
   /**

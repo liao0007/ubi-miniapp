@@ -24,15 +24,22 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let party = this.getGlobalData().party
     this.setData({
-      participants: this.getGlobalData().party.participants
+      participants: party.participants
+    }, this.checkStartStatus(party))
+
+    this.connectSocket(this.getGlobalData().party.id, (party) => {
+      this.setData({
+        participants: party.participants
+      }, this.checkStartStatus(party))
     })
   },
 
@@ -40,14 +47,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    this.closeSocket()
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    this.closeSocket()
   },
 
   /**
@@ -152,5 +159,15 @@ Page({
         }
       }
     })
+  },
+
+  checkStartStatus: function (party) {
+    console.log(party)
+    if (party.status == 'started' || party.status == 'closed') {
+      wx.redirectTo({
+        url: '../chooseGift/chooseGift'
+      })
+    }
   }
+
 });

@@ -5,7 +5,7 @@
     </navigator>
   </view>
 
-  <view class="costume-container" wx:for="{{giftsList}}" wx:key="{{index}}" wx:for-item="item">
+  <view class="costume-container" wx:for="{{gifts}}" wx:key="{{index}}" wx:for-item="item">
     <view class="list-item" wx:if="{{!item.participant.id}}">
       <image class="thumbnail" src="{{imageBaseUrl}}{{item.thumbnail[0].url}}" />
     </view>
