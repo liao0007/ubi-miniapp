@@ -7,14 +7,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    id: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const scene = decodeURIComponent(options.scene);
+    this.setData({
+      id: (options.id == undefined ? 0 : options.id)
+    })
   },
 
   /**
@@ -66,8 +68,7 @@ Page({
 
   },
 
-
-  onCreateWithUserInfo: userInfoRes => {
+  onCreateWithUserInfo: function (userInfoRes) {
     getUserInfo(userInfoRes, userInfo => {
       wx.request({
         url: constant.gateway.create,
@@ -81,17 +82,15 @@ Page({
         }
       })
     })
-
-
   },
 
-  onJoinWithUserInfo: userInfoRes => {
+  onJoinWithUserInfo: function (userInfoRes) {
     // 返回用户信息
     getUserInfo(userInfoRes, userInfo => {
       wx.request({
         url: constant.gateway.join,
         method: "POST",
-        data: { id: 1, ...userInfo }, //id should reflect real id by scan qrcode
+        data: { id: parseInt(this.data.id), ...userInfo },
         success: res => {
           console.log(res)
           app.globalData.party = res.data;
@@ -115,6 +114,7 @@ const getUserInfo = (userInfoRes, callback) => {
           // 返回 openid
           let userInfo = JSON.parse(userInfoRes.detail.rawData);
           userInfo.openid = sessionInfoRes.data.openid;
+          // store userInfo
           app.globalData.userInfo = userInfo
           callback(userInfo)
         }

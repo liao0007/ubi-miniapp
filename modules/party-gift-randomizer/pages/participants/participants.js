@@ -91,12 +91,27 @@ Page({
     })
   },
 
-  onClickConfirm: function () {
-    // call api
-    console.log(this.data.userHeight)
+  onClickReadyConfirm: function () {
+    wx.request({
+      url: constant.gateway.getReady,
+      method: "POST",
+      data: {
+        id: app.globalData.party.id,
+        openid: app.globalData.userInfo.openid,
+        height: this.data.userHeight,
+        weight: this.data.userWeight
+      },
+      success: (res) => {
+        console.log(res)
+        app.globalData.party = res.data
+        wx.redirectTo({
+          url: '../chooseGift/chooseGift'
+        })
+      }
+    })
   },
 
-  onClickCancel: function () {
+  onClickReadyCancel: function () {
     this.setData({
       isModalHidden: true
     })

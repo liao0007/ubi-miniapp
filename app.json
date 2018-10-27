@@ -1,7 +1,8 @@
 {
   "pages": [
-    "modules/party-gift-randomizer/pages/index/index",
     "index",
+    "modules/party-gift-randomizer/pages/index/index",
+    
     "modules/party-gift-randomizer/pages/getGift/getGift",
     "modules/party-gift-randomizer/pages/chooseGift/chooseGift",
     

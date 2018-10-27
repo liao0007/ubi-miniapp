@@ -15,7 +15,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      qrcodeUrl: constant.gateway.qrcode + "?scene=" + app.globalData.party.id
+      qrcodeUrl: constant.gateway.qrcode + "?id=" + app.globalData.party.id
     })
   },
 
