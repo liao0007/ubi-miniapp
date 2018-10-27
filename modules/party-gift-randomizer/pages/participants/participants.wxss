@@ -5,13 +5,14 @@
 }
 
 .avatars-section {
-  height: 480rpx;
-  overflow-y: scroll;
+  height: 490rpx;
+  width: 570rpx;
+  overflow-y: auto;
 }
 
 .avatar-container {
   display: inline-block;
-  border: solid 1px black;
+  border: solid 1px #eaeaea;
   margin: 10rpx 20rpx;
   width: 100rpx;
   height: 100rpx;
@@ -40,7 +41,7 @@
 }
 .btn-start {
   margin: 60rpx auto 0;
-  width: 25%;
+  width: 30%;
 }
 
 .desc {

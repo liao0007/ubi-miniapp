@@ -2,4 +2,50 @@
 
 .gifts {
   padding: 80rpx;
+  width: 600rpx;
+  margin: 0 auto;
+}
+.btn-add {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 20rpx 20rpx;
+  border: dashed 1px black;
+  float: left;
+}
+.add {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-size: 40px;
+  line-height: 40px;
+  padding-top: 15px;
+}
+.costume-container {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 20rpx 20rpx;
+  border: solid 1px #eaeaea;
+  display: inline-block
+}
+
+.list-item {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  position: relative;
+}
+
+.thumbnail {
+  height: 100%;
+  width: 100%;
+}
+
+.avatar-contaienr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50rpx;
+  width: 50rpx;
+  border-radius: 50rpx;
+  border: solid 1px #eaeaea;
 }

@@ -1,7 +1,22 @@
 <view class="gifts">
+
   <view class="btn-add">
     <navigator open-type="navigateTo" url="../addGift/addGift" hover-class="navigator-hover" class='list-item'>
-      <button>+</button>
+      <button class="add">+</button>
     </navigator>
   </view>
+
+  <view class="costume-container" wx:for="{{giftsList}}" wx:key="{{index}}" wx:for-item="item">
+    <view class="list-item" wx:if="{{!item.participantId}}">
+      <image class="thumbnail" src="{{item.thumbnail[0].url}}" />
+    </view>
+    <view class="list-item" wx:elif="{{item.participantId}}">
+      <image class="thumbnail" src="../../../../resources/images/default.jpg" />
+      <view class="avatar-contaienr">
+      <!-- todo：需要替换成用户头像url -->
+        <image class="thumbnail" src="../../../../resources/images/kind/daytime.png"></image>
+      </view>
+    </view>
+  </view>
+
 </view>

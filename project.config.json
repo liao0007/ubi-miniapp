@@ -33,12 +33,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "participants",
-					"pathName": "modules/party-gift-randomizer/pages/participants/participants"
+					"pathName": "modules/party-gift-randomizer/pages/participants/participants",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "gifts",
+					"pathName": "modules/party-gift-randomizer/pages/gifts/gifts"
 				}
 			]
 		}
