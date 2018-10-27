@@ -1,20 +1,22 @@
-const baseUrl = "www.youbohudong.com/";
-// const baseUrl = "localhost:9000/"
+const envrionment = "dev";
+const schema = envrionment == "prod" ? "s" : ""
+const baseUrl = envrionment == "prod" ? "www.youbohudong.com/" : "localhost:9000/"
 const baseGateway = baseUrl + "api/biz/party-gift-randomizer/";
-wss://www.youbohudong.com/api/biz/party-gift-randomizer/connect?id=1
+
 var globalData = { ...getApp().globalData } // inject globalData to local app
 module.exports = {
   baseUrl: baseUrl,
-  imageBaseUrl: baseUrl + "uploaded/",
+  imageBaseUrl: "http" + schema + "://" + baseUrl + "uploaded/",
   gateway: {
-    connect: "wss://" + baseGateway + "connect",
-    sessionInfo: "https://" + baseGateway + "session-info",
-    create: "https://" + baseGateway + "create",
-    qrcode: "https://" + baseGateway + "qrcode",
-    join: "https://" + baseGateway + "join",
-    getReady: "https://" + baseGateway + "get-ready",
-    start: "https://" + baseGateway + "start",
-    addGift: "https://" + baseGateway + "add-gift"
+    connect: "ws" + schema + "://" + baseGateway + "connect",
+    sessionInfo: "http" + schema + "://" + baseGateway + "session-info",
+    get: "http" + schema + "://" + baseGateway + "get",
+    create: "http" + schema + "://" + baseGateway + "create",
+    qrcode: "http" + schema + "://" + baseGateway + "qrcode",
+    join: "http" + schema + "://" + baseGateway + "join",
+    getReady: "http" + schema + "://" + baseGateway + "get-ready",
+    start: "http" + schema + "://" + baseGateway + "start",
+    addGift: "http" + schema + "://" + baseGateway + "add-gift"
   },
   setGlobalData: function (data) {
     globalData = { ...globalData, ...data }
