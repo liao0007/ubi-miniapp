@@ -2,8 +2,8 @@
   <view class="avatars-section">
     <scroll-view scroll-y="true">
       <view class="avatar-container" wx:for="{{participants}}" wx:key="{{index}}" wx:for-item="item">
-        <image class="avatar" src="{{avatarForParticipantId(item.id)}}" />
-        <icon class="ready-icon" type="success" size="20" wx:if="{{item.status}}"></icon>
+        <image class="avatar" src="{{imageBaseUrl}}{{item.avatar[0].url}}" />
+        <icon class="ready-icon" type="success" size="20" wx:if="{{item.status=='ready'}}"></icon>
       </view>
     </scroll-view>
   </view>

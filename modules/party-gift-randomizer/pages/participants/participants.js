@@ -15,7 +15,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      imageBaseUrl: this.imageBaseUrl
+    })
   },
 
   /**
@@ -98,16 +100,19 @@ Page({
       url: this.gateway.getReady,
       method: "POST",
       data: {
-        id: this.globalData.party.id,
-        openid: this.globalData.userInfo.openid,
+        id: this.getGlobalData().party.id,
+        openid: this.getGlobalData().userInfo.openid,
         height: this.data.userHeight,
         weight: this.data.userWeight
       },
       success: (res) => {
-        console.log(res)
-        this.globalData.party = res.data
-        wx.redirectTo({
-          url: '../chooseGift/chooseGift'
+        console.log(res.data)
+        this.setGlobalData({
+          party : res.data
+        })
+        this.setData({
+          isModalHidden: true,
+          participants: res.data.participants
         })
       }
     })
@@ -125,18 +130,22 @@ Page({
       content: '一旦开始，没有进来的朋友就不能进来了',
       confirmText: 'Yes',
       cancelText: 'No',
-      success: function (res) {
+      success: (res) => {
         if (res.confirm) {
           wx.request({
             url: this.gateway.start,
             method: "POST",
             data: {
-              id: this.globalData.party.id,
-              openid: this.globalData.userInfo.openid
+              id: this.getGlobalData().party.id,
+              openid: this.getGlobalData().userInfo.openid
             },
-            success: res => {
-              wx.redirectTo({
-                url: '../chooseGift/chooseGift',
+            success: (res) => {
+              this.setGlobalData({
+                party: res.data
+              })
+              this.setData({
+                isModalHidden: true,
+                participants: res.data.participants
               })
             }
           })

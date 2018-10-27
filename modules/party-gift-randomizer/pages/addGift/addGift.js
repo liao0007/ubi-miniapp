@@ -12,7 +12,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      imageBaseUrl: this.imageBaseUrl
+    })
   },
 
   /**
@@ -26,7 +28,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.setData({
+      imageBaseUrl: this.imageBaseUrl
+    })
   },
 
   /**
@@ -71,16 +75,17 @@ Page({
   onAddGiftButtonClicked: function(e) {
     // let giftInfo = this.data.giftInfo
     wx.request({
-      url: constant.gateway.addGift,
+      url: this.gateway.addGift,
       method: "POST",
       data: {
-        id: app.globalData.party.id,
-        openid: app.globalData.userInfo.openid,
+        id: this.getGlobalData().party.id,
+        openid: this.getGlobalData().userInfo.openid,
         giftInfo: this.data.giftInfo
       },
       success: (res) => {
-        console.log(res)
-        app.globalData.party = res.data
+        this.setGlobalData({
+          party : res.data
+        })
         wx.navigateBack({
           delta: 1
         })

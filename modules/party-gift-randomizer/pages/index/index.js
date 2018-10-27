@@ -13,7 +13,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      id: (options.id == undefined ? 0 : options.id)
+      id: (options.id == undefined ? 0 : options.id),
+      imageBaseUrl: this.imageBaseUrl
     })
   },
 

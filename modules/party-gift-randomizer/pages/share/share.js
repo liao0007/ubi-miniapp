@@ -13,7 +13,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      qrcodeUrl: constant.gateway.qrcode + "?id=" + app.globalData.party.id
+      qrcodeUrl: this.gateway.qrcode + "?id=" + this.getGlobalData().party.id,
+      imageBaseUrl: this.imageBaseUrl
     })
   },
 

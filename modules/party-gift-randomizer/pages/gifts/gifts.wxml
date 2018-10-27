@@ -6,14 +6,14 @@
   </view>
 
   <view class="costume-container" wx:for="{{giftsList}}" wx:key="{{index}}" wx:for-item="item">
-    <view class="list-item" wx:if="{{!item.participantId}}">
+    <view class="list-item" wx:if="{{!item.participant.id}}">
       <image class="thumbnail" src="{{imageBaseUrl}}{{item.thumbnail[0].url}}" />
     </view>
-    <view class="list-item" wx:elif="{{item.participantId}}">
+    <view class="list-item" wx:elif="{{item.participant.id}}">
       <image class="thumbnail" src="../../../../resources/images/default.jpg" />
       <view class="avatar-contaienr">
       <!-- todo：需要替换成用户头像url -->
-        <image class="thumbnail" src="../../../../resources/images/kind/daytime.png"></image>
+        <image class="thumbnail" src="{{imageBaseUrl}}{{item.participant.avatar[0].url}}"></image>
       </view>
     </view>
   </view>
