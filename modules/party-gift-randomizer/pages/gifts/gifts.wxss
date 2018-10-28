@@ -1,56 +1,7 @@
 @import "../../base/app.wxss";
 
-.gifts {
-  padding-top: 80rpx;
-}
-.gifts-section {
-  width: 600rpx;
-  height: 70%;
-  overflow-y: auto;
-  margin: 0 auto;
-  z-index: 2;
-}
-.btn-add {
-  width: 150rpx;
-  height: 150rpx;
-  margin: 20rpx 20rpx 0;
-  border: dashed 1px black;
-  float: left;
-}
-.add {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  font-size: 40px;
-  line-height: 40px;
-  padding-top: 15px;
-}
-.costume-container {
-  width: 150rpx;
-  height: 150rpx;
-  margin: 20rpx 20rpx;
-  z-index: 3;
-  float: left;
-}
-
-.list-item {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  position: relative;
-}
-
-.thumbnail {
-  height: 100%;
-  width: 100%;
-}
-
-.avatar-contaienr {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 50rpx;
-  width: 50rpx;
-  border-radius: 50rpx;
-  border: solid 1px #eaeaea;
+scroll-view {
+    width: 700rpx;
+    height: 900rpx;
+    margin: 60 rpx auto;
 }

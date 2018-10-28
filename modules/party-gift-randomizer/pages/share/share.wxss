@@ -1,15 +1,17 @@
 @import "../../base/app.wxss";
 
-.index-hd {
-    padding-top: 200rpx;
+image {
+    margin-top: 200rpx;
+    width: 400rpx;
+    height: 400rpx;
 }
 
-.index-hd .index-desc {
+text {
+    margin-top: 20rpx;
     color:rgba(255,193,193,1);
     font-size: 12px;
 }
 
-.index-hd image {
-    width: 400rpx;
-    height: 400rpx;
+button {
+    margin-top: 50rpx;
 }

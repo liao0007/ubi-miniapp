@@ -1,29 +1,31 @@
-<view class="gifts page">
-  <view class="gifts-section">
-    <view class="btn-add">
-      <navigator open-type="navigateTo" url="../addGift/addGift" hover-class="navigator-hover" class='list-item'>
-        <button class="add">+</button>
-      </navigator>
-    </view>
+<view class="page">
 
-    <view class="costume-container" wx:for="{{gifts}}" wx:key="{{index}}" wx:for-item="item">
+    <scroll-view scroll-y>
 
-      <view class="list-item" wx:if="{{item.participant.id}}">
-        <image class="thumbnail" src="{{imageBaseUrl}}{{item.thumbnail[0].url}}" />
-      </view>
+        <view class="gifts">
+            <navigator class="gift-wrapper add-gift" open-type="navigateTo" url="../addGift/addGift"
+                       hover-class="navigator-hover">
+                <view class="gift">
+                    <image class="thumbnail" src="{{'../../resources/images/addGift.png'}}"></image>
+                </view>
+            </navigator>
 
-      <view class="list-item" wx:elif="{{!item.participant.id}}">
-        <image class="thumbnail" src="/resources/images/halloween/pic_custom.png" />
-        <view class="avatar-contaienr">
-          <!-- todo：需要替换成用户头像url -->
-          <image class="thumbnail" src="{{imageBaseUrl}}{{item.participant.avatar[0].url}}"></image>
+            <view class="gift-wrapper" wx:for="{{gifts}}" wx:key="{{index}}" wx:for-item="item">
+                <view class="gift" wx:if="{{!item.participant.id || item.participant.openid == userInfo.openid}}">
+                    <image class="thumbnail" src="{{imageBaseUrl}}{{item.thumbnail[0].url}}"/>
+                </view>
+
+                <view class="gift" wx:elif="{{item.participant.id}}">
+                    <image class="thumbnail" src="../../resources/images/pic_custom.png"/>
+                    <view class="avatar">
+                        <view>
+                            <image src="{{imageBaseUrl}}{{item.participant.avatar[0].url}}"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
         </view>
-      </view>
-      
-    </view>
 
-    <view class="bg-container">
-      <image class="bg-image" src="/resources/images/halloween/bg_bottom.png"></image>
-    </view>
-  </view>
+    </scroll-view>
+
 </view>

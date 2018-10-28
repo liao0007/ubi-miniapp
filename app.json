@@ -9,12 +9,14 @@
         "modules/party-gift-randomizer/pages/participants/participants",
         "modules/party-gift-randomizer/pages/gifts/gifts",
         "modules/wolf-law-officer/pages/index/index",
-        "modules/wolf-law-officer/pages/create/create"
+        "modules/wolf-law-officer/pages/create/create",
+        "modules/party-gift-randomizer/pages/helpGift/helpGift"
     ],
     "window": {
         "navigationBarBackgroundColor": "#000000",
         "navigationBarTextStyle": "white",
         "navigationBarTitleText": "Secret Halloween",
-        "backgroundColor": "#F8F8F8"
+        "backgroundColor": "#F8F8F8",
+        "disableScroll": true
     }
 }

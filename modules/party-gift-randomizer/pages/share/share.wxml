@@ -1,13 +1,5 @@
-<view class="index page">
-  <view class="index-hd">
-    <image class="index-logo" src="{{qrcodeUrl}}"></image>
-    <view class="index-desc">保存并分享二维码，让朋友们参加你的万圣趴</view>
-  </view>
-
-  <view class="btn-area">
-    <button class="plain" bindtap='onSaveButtonClicked'>存到相册</button>
-  </view>
-  <view class="bg-container">
-    <image class="bg-image" src="/resources/images/halloween/bg_bottom.png"></image>
-  </view>
+<view class="page">
+    <image src="{{qrcodeUrl}}"></image>
+    <text>保存并分享二维码，让朋友们参加你的万圣趴</text>
+    <button plain class="secondary" bindtap='onClickSave'>存到相册</button>
 </view>

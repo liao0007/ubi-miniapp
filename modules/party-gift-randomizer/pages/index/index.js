@@ -78,7 +78,7 @@ Page({
                 data: userInfoWithOpenid,
                 success: (res) => {
                     this.setParty(res.data);
-                    wx.redirectTo({
+                    wx.reLaunch({
                         url: '../share/share',
                     })
                 }
@@ -107,14 +107,14 @@ Page({
                             data: {id: parseInt(this.data.id), ...userInfoWithOpenid},
                             success: (res) => {
                                 this.setParty(res.data);
-                                wx.redirectTo({
+                                wx.reLaunch({
                                     url: '../participants/participants',
                                 })
                             }
                         })
                     } else if (party.status === this.partyStatus.started) {
                         /*party started, if participant then redirect to choose gift page*/
-                        wx.redirectTo({
+                        wx.reLaunch({
                             url: '../chooseGift/chooseGift',
                         })
                     }

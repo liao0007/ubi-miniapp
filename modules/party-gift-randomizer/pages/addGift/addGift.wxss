@@ -1,17 +1,20 @@
 @import "../../base/app.wxss";
 
-.page-body {
-    padding-top: 200rpx;
-}
-
-.index-desc {
+text {
+    text-align: center;
+    width: 500rpx;
     font-size: 12px;
+    color: rgba(255, 193, 193, 1);
+    line-height: 17px;
+    margin-top: 200rpx;
 }
 
 textarea {
     font-size: 12px;
     background-color: #89424f;
-    padding: 15px 15px;
     color: white;
-    width: auto;
+    padding: 20px;
+    line-height: 17px;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
 }

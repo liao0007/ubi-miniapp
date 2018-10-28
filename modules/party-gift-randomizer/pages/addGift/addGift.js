@@ -94,6 +94,8 @@ Page({
     },
 
     onInfoClicked: function (e) {
-
+        wx.navigateTo({
+            url: '../helpGift/helpGift',
+        })
     }
 });

@@ -1,36 +1,20 @@
 @import "../../base/app.wxss";
 
+.participant {
+    margin-top: 60rpx;
+}
+
 scroll-view {
+    width: 680rpx;
     height: 470rpx;
+    margin-top: 50rpx;
     padding-top: 60rpx;
     border-top: solid 1px rgba(255,255,255,0.2);
+    margin-bottom: 30rpx;
 }
 
-.flex-wrp {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-flow: row wrap;
-    align-content: flex-end;
+.gift-wrapper {
+    padding: 0;
+    border-radius: 0;
 }
 
-.flex-item {
-    z-index: 99;
-    width: 165rpx;
-    height: 165rpx;
-    font-size: 26rpx;
-    border: 2px transparent solid;
-    overflow: hidden;
-    margin: 5rpx;
-}
-
-.flex-item.selected {
-    border-color: red
-}
-
-.thumbnail {
-    width: 170rpx;
-    height: 170rpx;
-}

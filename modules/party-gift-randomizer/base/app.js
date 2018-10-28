@@ -20,7 +20,8 @@ module.exports = {
         join: "http" + schema + "://" + baseGateway + "join",
         getReady: "http" + schema + "://" + baseGateway + "get-ready",
         start: "http" + schema + "://" + baseGateway + "start",
-        addGift: "http" + schema + "://" + baseGateway + "add-gift"
+        addGift: "http" + schema + "://" + baseGateway + "add-gift",
+        chooseGift: "http" + schema + "://" + baseGateway + "choose-gift"
     },
     partyStatus: {
         created: 'created',

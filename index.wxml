@@ -7,14 +7,14 @@
     <view class="list">
 
       <block>
-        <navigator open-type="redirect" url="/modules/party-gift-randomizer/pages/index/index?id=12" hover-class="navigator-hover" class='list-item'>
+        <navigator open-type="reLaunch" url="/modules/party-gift-randomizer/pages/index/index?id=77" hover-class="navigator-hover" class='list-item'>
           <view id="{{item.id}}" class="list-item-hd">
             <view class="list-text">Secret Halloween</view>
             <image class="list-img" src="/resources/images/kind/form.png"></image>
           </view>
         </navigator>
 
-        <navigator open-type="redirect" url="/modules/wolf-law-officer/pages/index/index" hover-class="navigator-hover" class='list-item'>
+        <navigator open-type="reLaunch" url="/modules/wolf-law-officer/pages/index/index" hover-class="navigator-hover" class='list-item'>
           <view id="{{item.id}}" class="list-item-hd">
             <view class="list-text">狼人杀小法官</view>
             <image class="list-img" src="/resources/images/kind/form.png"></image>

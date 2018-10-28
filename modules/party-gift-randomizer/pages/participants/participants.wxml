@@ -1,43 +1,25 @@
-<view class="participants page">
-    <view class="avatars-section">
-        <scroll-view scroll-y>
-
-            <view class="avatars">
-            <view class="avatar-wrapper" wx:for="{{participants}}" wx:key="{{index}}" wx:for-item="item">
-                <view class='avatar-container'>
-                    <image class="avatar" src="{{imageBaseUrl}}{{item.avatar[0].url}}" />
+<view class="page">
+    <scroll-view scroll-y>
+        <view class="avatars">
+            <view class="avatar" wx:for="{{participants}}" wx:key="{{index}}" wx:for-item="item">
+                <view>
+                    <image src="{{imageBaseUrl}}{{item.avatar[0].url}}"/>
                 </view>
-                <icon class="ready-icon" type="success" size="20" wx:if="{{item.status=='ready'}}"></icon>
+                <image class="ready-icon" src="{{'../../resources/images/ready.png'}}" wx:if="{{item.status=='ready'}}" ></image>
             </view>
-            </view>
+        </view>
+    </scroll-view>
 
-        </scroll-view>
-    </view>
+    <button plain class="secondary" bindtap='onClickViewCostume'>查看服装道具</button>
 
-    <view class="btn-view">
-        <button class="plain" bindtap='onClickViewCostume'>查看服装道具</button>
-    </view>
-
-    <view class="btn-ready">
-        <button class="primary ready" bindtap='onClickReady' disabled="{{isReadyButtonDisabled}}">Ready！</button>
-    </view>
+    <button plain class="primary" bindtap='onClickReady' disabled="{{isReadyButtonDisabled}}">READY</button>
 
     <!-- 当前用户为群主时显示 -->
-    <view class="btn-start" wx:if="true">
-        <button class="button" bindtap='onClickStart' plain="true" disabled="{{isStartButtonHidden}}">开始</button>
+    <view class="btn-start" wx:if="{{!isStartButtonHidden}}}">
+        <button plain bindtap='onClickStart' plain="true" >
+            <image src="{{'../../resources/images/start.png'}}"></image>
+        </button>
     </view>
 
-    <view class="bg-container">
-        <image class="bg-image" src="/resources/images/halloween/bg_bottom.png"></image>
-    </view>
-
-    <modal hidden="{{isModalHidden}}" title="Ready？" confirm-text="确定" cancel-text="取消" bindcancel="onClickReadyCancel" bindconfirm="onClickReadyConfirm">
-        <view class="title">请填写身高、体重， 便于朋友帮你购买costume</view>
-        <view class="input-container">
-            <input class="input-height" type="text" placeholder="身高" auto-focus bindinput="onInputHeight" />CM
-        </view>
-        <view class="input-container">
-            <input class="input-weight" type="text" placeholder="体重" auto-focus bindinput="onInputWeight" />KG
-        </view>
-    </modal>
 </view>
+
