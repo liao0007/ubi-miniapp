@@ -1,44 +1,55 @@
-@import "/base/index.wxss";
+@import "../../base/app.wxss";
+
 .index {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
 }
+
 .index-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
 }
+
 .bg-image {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  -o-object-fit: cover;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    -o-object-fit: cover;
 }
+
 .index-hd {
-  margin-top: 70%;
+    margin-top: 70%;
 }
+
+.index-hd .index-desc {
+    font-size: 12px;
+}
+
 .btn-area {
-  position: relative;
-  text-align: center;
+    position: relative;
+    text-align: center;
 }
+
 button {
-  border: none;
-  padding: 0;
-  height: 200rpx;
-  width: 200rpx;
-  opacity: 0;
-  position:absolute;
-  top: 0;
-  left:50%;
-  transform:translateX(-50%);
+    border: none;
+    padding: 0;
+    height: 200rpx;
+    width: 200rpx;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
+
 .btn-img {
-  height: 200rpx;
-  width: 200rpx;
-  margin: 20rpx auto;
+    height: 200rpx;
+    width: 200rpx;
+    margin: 20rpx auto;
 }

@@ -7,9 +7,11 @@
     </view>
 
     <view class="costume-container" wx:for="{{gifts}}" wx:key="{{index}}" wx:for-item="item">
+
       <view class="list-item" wx:if="{{item.participant.id}}">
         <image class="thumbnail" src="{{imageBaseUrl}}{{item.thumbnail[0].url}}" />
       </view>
+
       <view class="list-item" wx:elif="{{!item.participant.id}}">
         <image class="thumbnail" src="/resources/images/halloween/pic_custom.png" />
         <view class="avatar-contaienr">
@@ -17,6 +19,7 @@
           <image class="thumbnail" src="{{imageBaseUrl}}{{item.participant.avatar[0].url}}"></image>
         </view>
       </view>
+      
     </view>
 
     <view class="bg-container">

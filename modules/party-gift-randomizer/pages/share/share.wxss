@@ -1,6 +1,15 @@
-@import "/base/index.wxss";
+@import "../../base/app.wxss";
 
-.index-logo {
-  height: 500rpx;
-  width: 500rpx;
+.index-hd {
+    padding-top: 200rpx;
+}
+
+.index-hd .index-desc {
+    color:rgba(255,193,193,1);
+    font-size: 12px;
+}
+
+.index-hd image {
+    width: 400rpx;
+    height: 400rpx;
 }

@@ -109,7 +109,7 @@ input {
 
 .page-section{
   width: 100%;
-  margin-bottom: 60rpx;
+  margin-bottom: 30rpx;
 }
 .page-section_center{
   display: flex;
@@ -144,7 +144,6 @@ input {
 
 /* widget */
 .btn-area{
-  margin-top: 60rpx;
   box-sizing: border-box;
   width: 100%;
   padding: 0 30rpx;

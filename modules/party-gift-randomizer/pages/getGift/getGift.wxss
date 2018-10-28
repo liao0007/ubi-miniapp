@@ -1,4 +1,5 @@
-@import "/base/index.wxss";
+@import "../../base/app.wxss";
+
 .page-body {
   padding-top: 200rpx;
 }

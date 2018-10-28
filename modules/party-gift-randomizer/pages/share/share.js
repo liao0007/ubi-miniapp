@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    qrcodeUrl: undefined
+    qrcodeUrl: ""
   },
 
   /**
@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      qrcodeUrl: this.gateway.qrcode + "?id=" + this.getGlobalData().party.id,
+      qrcodeUrl: this.gateway.qrcode + "?id=" + this.getParty().id,
       imageBaseUrl: this.imageBaseUrl
     })
   },
@@ -96,9 +96,6 @@ Page({
                 }
               })
             }
-          },
-          complete(res) {
-            console.log(res);
           }
         })
       }

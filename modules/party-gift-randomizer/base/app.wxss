@@ -1,0 +1,89 @@
+@import "/base/index.wxss";
+
+/* buttons */
+button.primary {
+    border: 1px solid transparent;
+    width: 400rpx;
+    height: 44px;
+    background: rgba(255, 152, 20, 1);
+    border-radius: 44px;
+    color: black;
+    line-height: 44px;
+    font-size: 14px;
+    z-index: 99;
+}
+
+button.plain {
+    border: 1px solid white;
+    width: 400rpx;
+    height: 44px;
+    background: transparent;
+    border-radius: 44px;
+    color: white;
+    line-height: 44px;
+    font-size: 14px;
+    z-index: 99;
+}
+
+/* participant info */
+.participant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.participant .desc {
+    font-size: 14px;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 1);
+    line-height: 30px;
+}
+
+.participant .nickName {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    line-height: 30px;
+}
+
+.participant .labels {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.labels .label {
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.label .key {
+    font-size: 12px;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 17px;
+}
+
+.label .value {
+    font-size: 16px;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 1);
+}
+
+.avatar-container {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    overflow: hidden;
+    border: 1px solid white;
+}
+
+.avatar {
+    height: 50px;
+    width: 50px;
+}
+

@@ -1,29 +1,20 @@
 {
-  "pages": [
-    "index",
-    "modules/party-gift-randomizer/pages/index/index",
-    
-    "modules/party-gift-randomizer/pages/getGift/getGift",
-    "modules/party-gift-randomizer/pages/chooseGift/chooseGift",
-    
-    "modules/party-gift-randomizer/pages/addGift/addGift",
-    
-    
-    "modules/party-gift-randomizer/pages/share/share",
-    "modules/party-gift-randomizer/pages/participants/participants",
-    "modules/party-gift-randomizer/pages/gifts/gifts",
-    
-    
-    
-    
-    
-    "modules/wolf-law-officer/pages/index/index",
-    "modules/wolf-law-officer/pages/create/create"
-  ],
-  "window": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "狼人杀小法官",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
-  }
+    "pages": [
+        "index",
+        "modules/party-gift-randomizer/pages/index/index",
+        "modules/party-gift-randomizer/pages/getGift/getGift",
+        "modules/party-gift-randomizer/pages/chooseGift/chooseGift",
+        "modules/party-gift-randomizer/pages/addGift/addGift",
+        "modules/party-gift-randomizer/pages/share/share",
+        "modules/party-gift-randomizer/pages/participants/participants",
+        "modules/party-gift-randomizer/pages/gifts/gifts",
+        "modules/wolf-law-officer/pages/index/index",
+        "modules/wolf-law-officer/pages/create/create"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#000000",
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "Secret Halloween",
+        "backgroundColor": "#F8F8F8"
+    }
 }

@@ -1,33 +1,47 @@
 <view class="container page">
-  <view class="page-body">
-    <view class="page-section friend">
-      <view class="index-desc">you are buying for</view>
-      <image class="index-logo" src=""></image>
-      <view>
-        <text>178cm</text>
-        <text>70kg</text>
-      </view>
+    <view class="page-body">
+        <view class="page-section participant" style='margin-top:20px'>
+            <text class="desc">您正在为以下小伙伴购买道具</text>
+
+            <view class='avatar-container'>
+                <image class="avatar" src="{{imageBaseUrl}}{{beneficiary.avatar[0].url}}"></image>
+            </view>
+
+            <text class="nickName">{{beneficiary.nickName}}</text>
+
+            <view class='labels'>
+                <view class='label'>
+                    <text class="key">身高(CM)</text>
+                    <text class="value">{{beneficiary.height}}</text>
+                </view>
+                <view class='label'>
+                    <text class="key">体重(KG)</text>
+                    <text class="value">{{beneficiary.weight}}</text>
+                </view>
+            </view>
+        </view>
+
+        <view class="page-section">
+            <view class="page-section-spacing">
+
+                <scroll-view scroll-y>
+                    <view class='flex-wrp'>
+                        <button class="flex-item {{(selectedGiftId===item.id) ? 'selected' : '' }}" data-id="{{item.id}}" wx:for="{{gifts}}" wx:key="{{index}}" wx:for-item="item" bindtap="{{onClickGift}}">
+                            <image class="thumbnail" src="{{imageBaseUrl}}{{item.thumbnail[0].url}}" />
+                        </button>
+                    </view>
+                </scroll-view>
+
+            </view>
+        </view>
+
     </view>
 
-    <view class="page-section">
-      <!-- <view class="page-section-title">
-        <text>flex-direction: row\n横向布局</text>
-      </view> -->
-      <view class="page-section-spacing">
-        <scroll-view scroll-y="true" style="height: 600rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-          <view class="flex-wrp" style="flex-direction:row;" wx:for="{{gifts}}" wx:key="{{index}}" wx:for-item="item">
-            <view class="flex-item">1</view>
-          </view>
-        </scroll-view>
-      </view>
+    <view class="btn-area">
+        <button class='button' bindtap='onClickBuy' class="primary">去购买</button>
     </view>
-  </view>
 
-  <view class="btn-area">
-    <button class='button' bindtap='onBuyButtonClicked' plain='true'>BUY</button>
-
-  </view>
-  <view class="bg-container">
-    <image class="bg-image" src="/resources/images/halloween/bg_bottom.png"></image>
-  </view>
+    <view class="bg-container">
+        <image class="bg-image" src="/resources/images/halloween/bg_bottom.png"></image>
+    </view>
 </view>

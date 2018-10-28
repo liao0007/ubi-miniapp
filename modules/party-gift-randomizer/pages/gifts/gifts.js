@@ -1,76 +1,76 @@
 Page({
-  ...require('../../base/app.js'),
+    ...require('../../base/app.js'),
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    gifts: null
-  },
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        gifts: null
+    },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    this.setData({
-      imageBaseUrl: this.imageBaseUrl
-    })
-  },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        this.setData({
+            imageBaseUrl: this.imageBaseUrl
+        })
+    },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
 
-  },
+    },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    this.setData({
-      gifts: this.getGlobalData().party.gifts
-    })
-    this.connectSocket(this.getGlobalData().party.id, (res) => {
-      console.log(res)
-      this.setData({
-        gifts: res.gifts
-      })
-    })
-  },
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+        this.setData({
+            gifts: this.getParty().gifts
+        });
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    this.closeSocket()
-  },
+        this.connectSocket(this.getParty().id, (res) => {
+            this.setData({
+                gifts: res.gifts
+            })
+        })
+    },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    this.closeSocket()
-  },
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+        this.closeSocket()
+    },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+        this.closeSocket()
+    },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    }
 });

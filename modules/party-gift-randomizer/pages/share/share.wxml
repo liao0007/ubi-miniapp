@@ -5,7 +5,7 @@
   </view>
 
   <view class="btn-area">
-    <button class="button" bindtap='onSaveButtonClicked' plain="true">存到相册</button>
+    <button class="plain" bindtap='onSaveButtonClicked'>存到相册</button>
   </view>
   <view class="bg-container">
     <image class="bg-image" src="/resources/images/halloween/bg_bottom.png"></image>

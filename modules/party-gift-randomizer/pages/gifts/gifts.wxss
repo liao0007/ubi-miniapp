@@ -1,4 +1,4 @@
-@import "/base/index.wxss";
+@import "../../base/app.wxss";
 
 .gifts {
   padding-top: 80rpx;

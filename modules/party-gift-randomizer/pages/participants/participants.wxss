@@ -1,69 +1,71 @@
-@import "/base/index.wxss";
+@import "../../base/app.wxss";
 
 .page {
-  padding-top: 80rpx;
-
+    padding-top: 80rpx;
 }
+
 .avatars-section {
-  height: 490rpx;
-  width: 570rpx;
-  overflow-y: auto;
-  margin: auto;
+    height: 490rpx;
+    width: 600rpx;
+    overflow-y: auto;
+    margin: auto;
 }
 
-.avatar-container {
-  display: inline-block;
-  border: solid 1px #eaeaea;
-  margin: 10rpx 20rpx;
-  width: 100rpx;
-  height: 100rpx;
-  box-sizing: border-box;
-  border-radius: 50rpx;
-  position: relative;
+.avatars {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    align-content: flex-end;
 }
 
-.avatar {
-  width: 100%;
-  height: 100%;
+.avatar-wrapper {
+    position: relative;
+    height: 52px;
+    width: 52px;
+    overflow: hidden;
+    margin: 5px;
 }
+
 .ready-icon {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .btn-view {
-  margin: 80rpx auto 30rpx;
+    margin: 80rpx auto 30rpx;
 }
+
 .btn-start {
-  position: absolute;
-  bottom: 160rpx;
-  width: 100%;
-}
-.ready[plain] {
-  background-color: #FF9814;
-  border-color: #FF9814;
+    position: absolute;
+    bottom: 160rpx;
+    width: 100%;
 }
 
 .desc {
-  margin-top: 20rpx;
-  color: #888888;
-  font-size: 28rpx;
+    margin-top: 20rpx;
+    color: #888;
+    font-size: 28rpx;
 }
-.title {
-  text-align: center;
-  width: 70%;
-  margin: 0 auto;
-}
-.input-container {
-  display: flex;
-  align-items: center;
-  margin: 40rpx 0;
-}
- input {
-   display: inline-block;
-   width: 85%;
-   border-bottom: solid 1px #eaeaea;
-   padding-left: 10rpx;
- }
 
+.title {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin: 40rpx 0;
+}
+
+input {
+    display: inline-block;
+    width: 85%;
+    border-bottom: solid 1px #eaeaea;
+    padding-left: 10rpx;
+}
