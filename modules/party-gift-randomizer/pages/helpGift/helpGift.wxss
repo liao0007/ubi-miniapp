@@ -1,0 +1,7 @@
+@import "../../base/app.wxss";
+
+image {
+    margin-top: 80rpx;
+    width: 620rpx;
+    height: 638rpx;
+}

@@ -6,11 +6,11 @@ Page({
      */
     data: {
         participants: [],
-        showModal: false,
+        isShowReadyModal: false,
         userHeight: '123',
         userWeight: '1234',
 
-        isStartButtonHidden: true,
+        isShowStartButton: false,
         isReadyButtonDisabled: false
     },
 
@@ -84,6 +84,12 @@ Page({
 
     },
 
+    hideReadyModal: function () {
+        this.setData({
+            isShowReadyModal: false
+        })
+    },
+
     onClickViewCostume: function () {
         wx.navigateTo({
             url: '../gifts/gifts',
@@ -103,10 +109,16 @@ Page({
     },
 
     onClickReady: function () {
-        this.onConfirm();
+        this.setData({
+            isShowReadyModal: true
+        })
     },
 
-    onConfirm: function () {
+    onClickCancel: function () {
+        this.hideReadyModal();
+    },
+
+    onClickConfirm: function () {
         wx.request({
             url: this.gateway.getReady,
             method: "POST",
@@ -120,8 +132,8 @@ Page({
                 this.setParty(res.data);
                 this.setData({
                     participants: res.data.participants
-                });
-                this.hideModal();
+                }, this.hideReadyModal());
+
             }
         })
     },
@@ -145,8 +157,7 @@ Page({
                             this.setParty(res.data);
                             this.setData({
                                 participants: res.data.participants
-                            });
-                            this.hideModal();
+                            }, this.hideReadyModal());
                         }
                     })
                 }
@@ -158,7 +169,7 @@ Page({
         /*show start button to host*/
         if (this.getHost().openid === this.getUserInfo().openid) {
             this.setData({
-                isStartButtonHidden: false
+                isShowStartButton: true
             })
         }
         /*show started button when created*/

@@ -3,5 +3,5 @@
 scroll-view {
     width: 700rpx;
     height: 900rpx;
-    margin: 60 rpx auto;
+    margin: 60rpx auto;
 }

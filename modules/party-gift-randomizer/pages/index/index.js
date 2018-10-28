@@ -24,7 +24,8 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+        this.innerAudioContext = wx.createInnerAudioContext();
+        this.innerAudioContext.src = 'http://secret-party.oss-cn-beijing.aliyuncs.com/anpai.mp3'
     },
 
     /**
@@ -80,7 +81,11 @@ Page({
                     this.setParty(res.data);
                     wx.reLaunch({
                         url: '../share/share',
+                        success: () => {
+                            this.innerAudioContext.play()
+                        }
                     })
+
                 }
             })
         })
@@ -109,13 +114,16 @@ Page({
                                 this.setParty(res.data);
                                 wx.reLaunch({
                                     url: '../participants/participants',
+                                    success: () => {
+                                        this.innerAudioContext.play()
+                                    }
                                 })
                             }
                         })
                     } else if (party.status === this.partyStatus.started) {
                         /*party started, if participant then redirect to choose gift page*/
                         wx.reLaunch({
-                            url: '../chooseGift/chooseGift',
+                            url: '../chooseGift/chooseGift'
                         })
                     }
                 }

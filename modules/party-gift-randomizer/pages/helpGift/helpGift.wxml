@@ -1,0 +1,5 @@
+<view class="page">
+
+    <image src="{{'../../resources/images/help.jpg'}}"></image>
+
+</view>

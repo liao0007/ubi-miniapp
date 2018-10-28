@@ -15,11 +15,16 @@
     <button plain class="primary" bindtap='onClickReady' disabled="{{isReadyButtonDisabled}}">READY</button>
 
     <!-- 当前用户为群主时显示 -->
-    <view class="btn-start" wx:if="{{!isStartButtonHidden}}}">
+    <view class="btn-start" wx:if="{{isShowStartButton}}">
         <button plain bindtap='onClickStart' plain="true" >
             <image src="{{'../../resources/images/start.png'}}"></image>
         </button>
     </view>
 
-</view>
+    <modal wx:if="{{isShowReadyModal}}" title="补充身高信息" confirm-text="Yes" cancel-text="No" bindcancel="onClickCancel" bindconfirm="onClickConfirm">
+        <view>请填写身高体重便于朋友帮你购买：</view>
+        <view class="input-container"><view class="label">身高(cm)：</view><input class="input-height" type="text" placeholder="180" auto-focus bindinput="onInputHeight"/></view>
+        <view class="input-container"><view class="label">体重(kg)：</view><input class="input-weight" type="text" placeholder="75" auto-focus bindinput="onInputWeight"/></view>
+    </modal>
 
+</view>
