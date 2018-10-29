@@ -1,2 +1,37 @@
-<!--modules/party-gift-randomizer/pages/result/result.wxml-->
-<text>modules/party-gift-randomizer/pages/result/result.wxml</text>
+<view class="page">
+
+    <view class="participant">
+        <text class="desc">您正在为以下小伙伴购买道具</text>
+        <view class='avatar'>
+            <view>
+                <image src="{{imageBaseUrl}}{{beneficiary.avatar[0].url}}"></image>
+            </view>
+        </view>
+
+        <text class="nickName">{{beneficiary.nickName}}</text>
+
+        <view class='labels'>
+            <view class='label'>
+                <text class="key">身高(CM)</text>
+                <text class="value">{{beneficiary.height}}</text>
+            </view>
+            <view class='label'>
+                <text class="key">体重(KG)</text>
+                <text class="value">{{beneficiary.weight}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="giftInfo">
+        <image src="{{imageBaseUrl}}{{gift.thumbnail[0].url}}"></image>
+        <text>{{gift.name}}</text>
+        <textarea auto-focus value="{{gift.link}}"/>
+    </view>
+
+    <navigator url="/modules/party-gift-randomizer/pages/index/index" open-type="reLaunch">
+        <button plain class='secondary'>
+            建立我的万圣节活动
+        </button>
+    </navigator>
+
+</view>

@@ -10,16 +10,22 @@ text {
     width: 500rpx;
     bottom: 500rpx;
     font-size: 12px;
-    color:rgba(255,193,193,1);
-    line-height:17px;
+    color: rgba(255, 193, 193, 1);
+    line-height: 17px;
 }
 
-button {
+.anpai {
     position: absolute;
-    bottom: 100rpx;
+    bottom: 200rpx;
 }
 
-button image {
+.anpai image {
     width: 207rpx;
     height: 204rpx;
 }
+
+.share {
+    position: absolute;
+    bottom: 50rpx;
+}
+

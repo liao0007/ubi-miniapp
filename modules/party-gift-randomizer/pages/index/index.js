@@ -5,8 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        id: 0,
-        buttonUrl: ''
+        id: 0
     },
 
     /**
@@ -14,9 +13,8 @@ Page({
      */
     onLoad: function (options) {
         this.setData({
-            id: (options.id === undefined ? 0 : options.id),
-            imageBaseUrl: this.imageBaseUrl,
-            buttonUrl: options.id === undefined ? '/resources/images/halloween/btn_begin.png' : '/resources/images/halloween/btn_enter.png'
+            id: (options.scene === undefined ? 0 : options.scene),
+            imageBaseUrl: this.imageBaseUrl
         })
     },
 
@@ -66,8 +64,20 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
-
+    onShareAppMessage: function (options) {
+        return {
+            title: '百万单身青年都在安排的小程序-秘密派对',
+            path: "modules/party-gift-randomizer/pages/index/index",
+            success: function (res) {
+                // 转发成功
+                wx.showModal({
+                    title: '提示',
+                    content: '如果需要邀请Ta加入当前派对，请找群主索取并分享二维码',
+                    showCancel: false,
+                    confirmText: "知道了"
+                });
+            }
+        }
     },
 
     onClickCreate: function (userInfoRes) {
@@ -122,9 +132,22 @@ Page({
                         })
                     } else if (party.status === this.partyStatus.started) {
                         /*party started, if participant then redirect to choose gift page*/
-                        wx.reLaunch({
-                            url: '../chooseGift/chooseGift'
-                        })
+                        let beneficiary = this.getParticipantById(this.getMeParticipant().beneficiaryId)
+                        if (beneficiary.giftId !== undefined && beneficiary.giftId > 0) {
+                            wx.reLaunch({
+                                url: '../result/result',
+                                success: () => {
+                                    this.innerAudioContext.play()
+                                }
+                            })
+                        } else {
+                            wx.reLaunch({
+                                url: '../chooseGift/chooseGift',
+                                success: () => {
+                                    this.innerAudioContext.play()
+                                }
+                            })
+                        }
                     }
                 }
             })
@@ -149,6 +172,14 @@ Page({
                         callback(userInfo)
                     }
                 })
+            }
+        })
+    },
+
+    scanCode: function (res) {
+        wx.scanCode({
+            success: (res) => {
+                console.log(res)
             }
         })
     }

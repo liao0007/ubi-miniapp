@@ -1,7 +1,6 @@
 @import "../../base/app.wxss";
 
 scroll-view {
-    width: 700rpx;
-    height: 900rpx;
-    margin: 60rpx auto;
+    padding: 40rpx;
+    height: 1000rpx;
 }

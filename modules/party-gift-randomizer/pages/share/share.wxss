@@ -8,7 +8,7 @@ image {
 
 text {
     margin-top: 20rpx;
-    color:rgba(255,193,193,1);
+    color: rgba(255, 193, 193, 1);
     font-size: 12px;
 }
 

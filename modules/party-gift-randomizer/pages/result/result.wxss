@@ -1,1 +1,36 @@
-/* modules/party-gift-randomizer/pages/result/result.wxss */
+@import "../../base/app.wxss";
+
+.participant {
+    margin-top: 60rpx;
+}
+
+.giftInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.giftInfo image {
+    width: 220rpx;
+    height: 220rpx;
+    margin: 30rpx;
+}
+
+.giftInfo text {
+    width: 600rpx;
+    font-size: 12px;
+    color: white;
+    height: 17px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.giftInfo textarea {
+    font-size: 12px;
+    color: white;
+    width: 600rpx;
+    height: 180rpx;
+    margin: 30rpx;
+}

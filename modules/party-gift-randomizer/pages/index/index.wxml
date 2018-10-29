@@ -2,12 +2,16 @@
 
     <text>建立一个万圣节活动，随机安排一个朋友为你购买万圣节道具。</text>
 
-    <button plain='true' wx:if="{{id == 0}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onClickCreate">
+    <button class="anpai" plain wx:if="{{id == 0}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onClickCreate">
         <image class="btn-img" src="{{'../../resources/images/btn_begin.png'}}"></image>
     </button>
 
-    <button plain='true' wx:if="{{id > 0}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onClickJoin">
+    <button class="anpai" plain wx:if="{{id > 0}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onClickJoin">
         <image class="btn-img" src="{{'../../resources/images/btn_enter.png'}}"></image>
     </button>
+
+    <button class="text share" plain open-type="share">分享给朋友</button>
+
+     <!--<button bindtap='scanCode'>scan code</button>-->
 
 </view>

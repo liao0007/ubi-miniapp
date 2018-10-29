@@ -30,7 +30,7 @@ scroll-view {
 .input-container {
     display: flex;
     align-items: center;
-    margin: 50rpx 0;
+    margin: 50 rpx 0;
 }
 
 .input-container .label {
