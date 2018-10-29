@@ -75,7 +75,10 @@ Page({
     },
 
     onClickAddGift: function (e) {
-        // let giftInfo = this.data.giftInfo
+        wx.showLoading({
+            title: '添加道具中...',
+            mask: true
+        });
         wx.request({
             url: this.gateway.addGift,
             method: "POST",
@@ -85,6 +88,7 @@ Page({
                 giftInfo: this.data.giftInfo
             },
             success: (res) => {
+                wx.hideLoading();
                 this.setParty(res.data);
                 wx.navigateBack({
                     delta: 1

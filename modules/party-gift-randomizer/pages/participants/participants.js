@@ -7,8 +7,8 @@ Page({
     data: {
         participants: [],
         isShowReadyModal: false,
-        userHeight: '123',
-        userWeight: '1234',
+        userHeight: '',
+        userWeight: '',
 
         isShowStartButton: false,
         isReadyButtonDisabled: false
@@ -119,6 +119,21 @@ Page({
     },
 
     onClickConfirm: function () {
+        if(isNaN(parseInt(this.data.userHeight))) {
+            wx.showToast({
+                title: '身高不能为空',
+                icon: 'warn',
+                duration: 2000
+            });
+            return;
+        } else if(isNaN(parseInt(this.data.userWeight))) {
+            wx.showToast({
+                title: '体重不能为空',
+                icon: 'warn',
+                duration: 2000
+            });
+            return;
+        }
         wx.request({
             url: this.gateway.getReady,
             method: "POST",
@@ -139,6 +154,10 @@ Page({
     },
 
     onClickStart: function () {
+        wx.showLoading({
+            title: '随机分配中...',
+            mask: true
+        });
         wx.showModal({
             title: '提示',
             content: '确定开始后，没加入的朋友就不能加入了哦～',
@@ -154,6 +173,7 @@ Page({
                             openid: this.getUserInfo().openid
                         },
                         success: (res) => {
+                            wx.hideLoading();
                             this.setParty(res.data);
                             this.setData({
                                 participants: res.data.participants
@@ -180,9 +200,20 @@ Page({
         }
         /*redirect to chooseGift when party started*/
         if (party.status === this.partyStatus.started) {
-            wx.reLaunch({
-                url: '../chooseGift/chooseGift'
+            wx.showModal({
+                title: '提示',
+                content: '购买任务生成，点击查看你的Ta',
+                confirmText: "去看看",
+                showCancel: false,
+                success (res) {
+                    if (res.confirm) {
+                        wx.reLaunch({
+                            url: '../chooseGift/chooseGift'
+                        })
+                    }
+                }
             })
+
         }
     }
 

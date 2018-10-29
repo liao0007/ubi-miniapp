@@ -149,7 +149,7 @@ button.text {
     justify-content: center;
 }
 
-.labels .label {
+.participant .labels .label {
     min-width: 100px;
     display: flex;
     flex-direction: column;
@@ -157,14 +157,14 @@ button.text {
     justify-content: center;
 }
 
-.label .key {
+.participant .label .key {
     font-size: 12px;
     font-weight: 200;
     color: rgba(255, 255, 255, 0.5);
     line-height: 17px;
 }
 
-.label .value {
+.participant .label .value {
     font-size: 16px;
     font-weight: 200;
     color: rgba(255, 255, 255, 1);

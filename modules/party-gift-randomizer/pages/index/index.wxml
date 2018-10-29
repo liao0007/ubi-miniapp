@@ -1,6 +1,7 @@
 <view class="page">
 
-    <text>建立一个万圣节活动，随机安排一个朋友为你购买万圣节道具。</text>
+    <view style="margin-top: 80%;">建立万圣节活动并邀请密友参加，随机安排Ta为你购买万圣节道具</view>
+    <view class="hint">如需加入派对，请找群主索要二维码</view>
 
     <button class="anpai" plain wx:if="{{id == 0}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onClickCreate">
         <image class="btn-img" src="{{'../../resources/images/btn_begin.png'}}"></image>

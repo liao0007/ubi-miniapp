@@ -81,6 +81,10 @@ Page({
     },
 
     onClickCreate: function (userInfoRes) {
+        wx.showLoading({
+            title: '派对生成中...',
+            mask: true
+        });
         this.setOpenidWithUserInfoWithCallback(userInfoRes, (userInfoWithOpenid) => {
             /*create party and redirect to share page*/
             wx.request({
@@ -92,16 +96,20 @@ Page({
                     wx.reLaunch({
                         url: '../share/share',
                         success: () => {
+                            wx.hideLoading();
                             this.innerAudioContext.play()
                         }
                     })
-
                 }
             })
         })
     },
 
     onClickJoin: function (userInfoRes) {
+        wx.showLoading({
+            title: '派对加入中...',
+            mask: true
+        });
         this.setOpenidWithUserInfoWithCallback(userInfoRes, (userInfoWithOpenid) => {
             /*check party status*/
             wx.request({
@@ -121,6 +129,7 @@ Page({
                             method: "POST",
                             data: {id: parseInt(this.data.id), ...userInfoWithOpenid},
                             success: (res) => {
+                                wx.hideLoading();
                                 this.setParty(res.data);
                                 wx.reLaunch({
                                     url: '../participants/participants',
@@ -137,6 +146,7 @@ Page({
                             wx.reLaunch({
                                 url: '../result/result',
                                 success: () => {
+                                    wx.hideLoading();
                                     this.innerAudioContext.play()
                                 }
                             })
@@ -144,6 +154,7 @@ Page({
                             wx.reLaunch({
                                 url: '../chooseGift/chooseGift',
                                 success: () => {
+                                    wx.hideLoading();
                                     this.innerAudioContext.play()
                                 }
                             })
