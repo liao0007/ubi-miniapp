@@ -7,7 +7,7 @@
 view {
     text-align: center;
     width: 650rpx;
-    font-size: 14px;
+    font-size: 12px;
     color: rgba(255, 193, 193, 1);
     line-height: 17px;
 }
