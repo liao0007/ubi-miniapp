@@ -17,3 +17,7 @@ scroll-view {
     padding: 0;
     border-radius: 0;
 }
+
+button[disabled] {
+    opacity: 0.3;
+}

@@ -122,14 +122,14 @@ Page({
         if(isNaN(parseInt(this.data.userHeight))) {
             wx.showToast({
                 title: '身高不能为空',
-                icon: 'warn',
+                icon: 'none',
                 duration: 2000
             });
             return;
         } else if(isNaN(parseInt(this.data.userWeight))) {
             wx.showToast({
                 title: '体重不能为空',
-                icon: 'warn',
+                icon: 'none',
                 duration: 2000
             });
             return;
@@ -144,6 +144,11 @@ Page({
                 weight: this.data.userWeight
             },
             success: (res) => {
+                wx.showToast({
+                    title: '您已准备就绪，等待群主开始活动',
+                    icon: 'none',
+                    duration: 4000
+                });
                 this.setParty(res.data);
                 this.setData({
                     participants: res.data.participants
