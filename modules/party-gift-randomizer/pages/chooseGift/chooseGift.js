@@ -14,6 +14,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        /*
         this.setParty({
             "status": "started",
             "qrcodeI": 445,
@@ -190,6 +191,7 @@ Page({
             "avatar": [{"locale": null, "url": "2018/10/28/f4854014885902278a5a56564806453f.jpg"}],
             "id": 12
         })
+        */
 
         this.setData({
             imageBaseUrl: this.imageBaseUrl

@@ -159,10 +159,6 @@ Page({
     },
 
     onClickStart: function () {
-        wx.showLoading({
-            title: '随机分配中...',
-            mask: true
-        });
         wx.showModal({
             title: '提示',
             content: '确定开始后，没加入的朋友就不能加入了哦～',
@@ -170,6 +166,10 @@ Page({
             cancelText: '取消',
             success: (res) => {
                 if (res.confirm) {
+                    wx.showLoading({
+                        title: '随机分配中...',
+                        mask: true
+                    });
                     wx.request({
                         url: this.gateway.start,
                         method: "POST",

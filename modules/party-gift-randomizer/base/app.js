@@ -1,6 +1,6 @@
-const environment = "prod";
+const environment = "dev";
 const schema = environment === "prod" ? "s" : "";
-const baseUrl = environment === "prod" ? "www.youbohudong.com/" : "192.168.6.13:9000/";
+const baseUrl = environment === "prod" ? "www.youbohudong.com/" : "localhost:9000/";
 const baseGateway = baseUrl + "api/biz/party-gift-randomizer/";
 
 let globalData = {...getApp().globalData}; // inject globalData to local app
