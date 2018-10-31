@@ -1,4 +1,4 @@
-const environment = "dev";
+const environment = "prod";
 const schema = environment === "prod" ? "s" : "";
 const baseUrl = environment === "prod" ? "www.youbohudong.com/" : "localhost:9000/";
 const baseGateway = baseUrl + "api/biz/party-gift-randomizer/";
